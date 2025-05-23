@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface EvenementMap {
- 
- 
+    EvenementDto eventToDto(Evenement evenement);
+      Evenement dtoToEvent(EvenementDto eventDto);
 
 }

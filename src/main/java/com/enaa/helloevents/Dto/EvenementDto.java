@@ -12,7 +12,6 @@ public class EvenementDto {
     private Long idEvent;
     private String eventname;
     private String description;
-    private String type;
 
     public Long getIdEvent() {
         return idEvent;
@@ -36,13 +35,5 @@ public class EvenementDto {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 }
