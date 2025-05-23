@@ -1,37 +1,40 @@
 package com.enaa.helloevents.Entities;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 
 import java.util.Date;
-
+import java.util.List;
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor
 public class Evenement {
-    @Id
+   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-    private String titre;
-    private String description;
-    private  String Location;
-    private Date date;
-    private double price;
 
-    public long getId() {
-        return id;
+   private Long idEvent;
+
+ private String eventname;
+
+ private String description;
+
+    public Long getIdEvent() {
+        return idEvent;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setIdEvent(Long idEvent) {
+        this.idEvent = idEvent;
     }
 
-    public String getTitre() {
-        return titre;
+    public String getEventname() {
+        return eventname;
     }
 
-    public void setTitre(String titre) {
-        this.titre = titre;
+    public void setEventname(String eventname) {
+        this.eventname = eventname;
     }
 
     public String getDescription() {
@@ -42,40 +45,26 @@ public class Evenement {
         this.description = description;
     }
 
-    public String getLocation() {
-        return Location;
+    public String getType() {
+        return type;
     }
 
-    public void setLocation(String location) {
-        Location = location;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public Date getDate() {
-        return date;
+    public List<Reservation> getReservations() {
+        return reservations;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
     }
 
-    public double getPrice() {
-        return price;
-    }
+    private String type;
 
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public Reservation getReservation() {
-        return reservation;
-    }
-
-    public void setReservation(Reservation reservation) {
-        this.reservation = reservation;
-    }
-
-    @OneToMany(mappedBy = "reservation")
-    private Reservation reservation;
+ @OneToMany(mappedBy = "evenement" , cascade = CascadeType.ALL , orphanRemoval = true)
+ private List<Reservation> reservations;
 
 
 }
