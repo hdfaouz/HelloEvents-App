@@ -28,10 +28,10 @@ public class ClientController {
     public ClientDto getClientById(@PathVariable Long id){
         return clientService.getClientByid(id);
     }
-    @PutMapping("/{id}")
+    /*@PutMapping("/{id}")
     public ClientDto updateClient(@PathVariable Long id , @RequestBody ClientDto clientDto){
         return clientService.modifierClient(id,clientDto);
-    }
+    }*/
     @DeleteMapping("/{id}")
     public void deleteClient(@PathVariable Long id){
         clientService.deleteClient(id);

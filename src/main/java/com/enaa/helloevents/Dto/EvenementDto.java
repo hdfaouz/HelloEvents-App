@@ -8,8 +8,8 @@ import java.util.Date;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public class EvenementDto {
-    private Long idEvent;
+public class EvenementDto {}
+    /*private Long idEvent;
     private String eventname;
     private String description;
 
@@ -37,3 +37,5 @@ public class EvenementDto {
         this.description = description;
     }
 }
+*/
+

@@ -10,8 +10,6 @@ public class Reservation {
 
     private Long idreservation;
 
-    @ManyToOne
-    private Client client;
 
     public Long getIdreservation() {
         return idreservation;
@@ -21,13 +19,7 @@ public class Reservation {
         this.idreservation = idreservation;
     }
 
-    public Client getClient() {
-        return client;
-    }
 
-    public void setClient(Client client) {
-        this.client = client;
-    }
 
     public Evenement getEvenement() {
         return evenement;
@@ -41,4 +33,8 @@ public class Reservation {
     private Evenement evenement;
 
 
+
+
 }
+
+

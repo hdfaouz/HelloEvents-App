@@ -5,8 +5,8 @@ import lombok.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
-public class ClientDto {
-    private Long id;
+public class ClientDto {}
+   /* private Long id;
     private String firstName;
     private String lastName;
     private String email;
@@ -52,3 +52,4 @@ public class ClientDto {
         this.password = password;
     }
 }
+*/

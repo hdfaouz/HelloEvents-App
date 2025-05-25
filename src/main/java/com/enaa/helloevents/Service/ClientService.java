@@ -16,7 +16,9 @@ import java.util.List;
 
 public class ClientService {
 
-    private final ClientRepositorie clientRepository;
+
+
+  private final ClientRepositorie clientRepository;
     private final ClientMap clientMap;
 
     public ClientService(ClientRepositorie clientRepository , ClientMap clientMap) {
@@ -39,10 +41,10 @@ public class ClientService {
                 .orElseThrow(()-> new RuntimeException("Client not found"));
     }
 
-    public ClientDto modifierClient(Long id ,ClientDto clientDto){
+    /*public ClientDto modifierClient(Long id ,ClientDto clientDto){
         Client client = clientRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Client not found with id: " + id));
-        client.setFirstName(clientDto.getFirstName());
+        client.setUsername(clientDto);
         client.setLastName(clientDto.getLastName());
         client.setEmail(clientDto.getEmail());
         client.setPassword(clientDto.getPassword());
@@ -51,7 +53,7 @@ public class ClientService {
 
 
 
-    }
+    }*/
 
     public void deleteClient(Long id){
         clientRepository.deleteById(id);
@@ -62,3 +64,5 @@ public class ClientService {
 
 
 }
+
+

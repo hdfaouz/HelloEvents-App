@@ -43,7 +43,7 @@ public class EvenementService {
                 .orElseThrow(()->new RuntimeException("event not found"));
     }
 
-    public EvenementDto updateEvent(Long id, EvenementDto eventDto) {
+   /* public EvenementDto updateEvent(Long id, EvenementDto eventDto) {
         Evenement ev = eventRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Evenement non trouvé avec l'id " + id));
 
@@ -52,10 +52,11 @@ public class EvenementService {
 
 
         return eventMapper.eventToDto(eventRepository.save(ev));
-    }
+    }*/
 
 
     public void deleteEvent(Long id){
         eventRepository.deleteById(id);
     }
 }
+

@@ -1,7 +1,10 @@
 package com.enaa.helloevents.Dto;
 
-public class ReservationDto {
-    private Long idReservation;
+import lombok.AllArgsConstructor;
+
+
+public class ReservationDto {}
+    /*private Long idReservation;
     private Long clientid;
     private Long eventId;
 
@@ -29,3 +32,5 @@ public class ReservationDto {
         this.eventId = eventId;
     }
 }
+*/
+

@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Evenement {
-   @Id
+  @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
    private Long idEvent;
@@ -68,3 +68,5 @@ public class Evenement {
 
 
 }
+
+
