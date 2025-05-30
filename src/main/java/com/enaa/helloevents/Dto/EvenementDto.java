@@ -6,12 +6,20 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
-@AllArgsConstructor
-@NoArgsConstructor
-public class EvenementDto {}
-    /*private Long idEvent;
+
+public class EvenementDto {
+    private Long idEvent;
     private String eventname;
     private String description;
+
+    public EvenementDto(Long idEvent, String eventname, String description) {
+        this.idEvent = idEvent;
+        this.eventname = eventname;
+        this.description = description;
+    }
+
+    public EvenementDto() {
+    }
 
     public Long getIdEvent() {
         return idEvent;
@@ -37,5 +45,5 @@ public class EvenementDto {}
         this.description = description;
     }
 }
-*/
+
 

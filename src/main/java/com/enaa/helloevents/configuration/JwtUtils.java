@@ -3,6 +3,8 @@ package com.enaa.helloevents.configuration;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.io.Decoders;
+import io.jsonwebtoken.security.Keys;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -26,24 +28,28 @@ public class JwtUtils {
     @Value("${app.expiration-time}")
     private Long expirationTime;
 
-    public String generateToken(String username) {
-        Map<String, Object> claims = new HashMap<>();
+    public String generateToken(Map<String, String> claims,String username) {
+
         return createToken(claims, username);
     }
 
-    private String createToken(Map<String, Object> claims, String subject) {
-        return Jwts.builder()
+    private String createToken(Map<String, String> claims, String subject) {
+
+        var token =  Jwts.builder()
                 .setClaims(claims)
                 .setSubject(subject)
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + expirationTime))
-                .signWith(SignatureAlgorithm.HS256, getSignKey())
+                .signWith(getSignInKey(),SignatureAlgorithm.HS256)
                 .compact();
+
+        System.out.println(token);
+        return token;
     }
 
-    private Key getSignKey() {
-        byte[] keyBytes = secretKey.getBytes();
-        return new SecretKeySpec(keyBytes, SignatureAlgorithm.HS256.getJcaName());
+    private Key getSignInKey() {
+        byte[] keyBytes = Decoders.BASE64.decode(secretKey);
+        return Keys.hmacShaKeyFor(keyBytes);
     }
 
 
@@ -75,7 +81,7 @@ public class JwtUtils {
 
     private Claims extiratAllClaims(String token) {
         return Jwts.parser()
-                .setSigningKey(getSignKey())
+                .setSigningKey(getSignInKey())
                 .parseClaimsJws(token)
                 .getBody();
     }

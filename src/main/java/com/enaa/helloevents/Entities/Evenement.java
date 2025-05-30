@@ -9,8 +9,6 @@ import org.springframework.boot.autoconfigure.kafka.KafkaProperties;
 import java.util.Date;
 import java.util.List;
 @Entity
-@AllArgsConstructor
-@NoArgsConstructor
 public class Evenement {
   @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +18,17 @@ public class Evenement {
  private String eventname;
 
  private String description;
+
+    public Evenement() {
+    }
+
+    public Evenement(Long idEvent, String eventname, String description, String type, List<Reservation> reservations) {
+        this.idEvent = idEvent;
+        this.eventname = eventname;
+        this.description = description;
+        this.type = type;
+        this.reservations = reservations;
+    }
 
     public Long getIdEvent() {
         return idEvent;

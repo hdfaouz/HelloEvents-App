@@ -3,10 +3,20 @@ package com.enaa.helloevents.Dto;
 import lombok.AllArgsConstructor;
 
 
-public class ReservationDto {}
-    /*private Long idReservation;
+public class ReservationDto {
+
+    private Long idReservation;
     private Long clientid;
     private Long eventId;
+
+    public ReservationDto(Long idReservation, Long clientid, Long eventId) {
+        this.idReservation = idReservation;
+        this.clientid = clientid;
+        this.eventId = eventId;
+    }
+
+    public ReservationDto() {
+    }
 
     public Long getIdReservation() {
         return idReservation;
@@ -32,5 +42,5 @@ public class ReservationDto {}
         this.eventId = eventId;
     }
 }
-*/
+
 

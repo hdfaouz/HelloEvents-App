@@ -20,24 +20,29 @@ public class EvenementController {
     public EvenementDto addEvent(@RequestBody EvenementDto eventDto) {
         return eventService.AddEvent(eventDto);
     }
+
     @GetMapping
-    public List<EvenementDto> getAllEvents(){
+    public List<EvenementDto> getAllEvents() {
         return eventService.getAllEvents();
     }
+
     @GetMapping("/{id}")
-    public EvenementDto getEventById(@PathVariable Long id ) {
-        return  eventService.getEventById(id);
+    public EvenementDto getEventById(@PathVariable Long id) {
+        return eventService.getEventById(id);
     }
+
     @PutMapping("/{id}")
-    public EvenementDto updatEvent(@PathVariable Long id ,@RequestBody EvenementDto eventDto) {
-        return eventService.updateEvent(id,eventDto);
+    public EvenementDto updatEvent(@PathVariable Long id, @RequestBody EvenementDto eventDto) {
+        return eventService.updateEvent(id, eventDto);
+
     }
 
     @DeleteMapping("/{id}")
-    public void deleteEvent(@PathVariable Long id ) {
+    public void deleteEvent(@PathVariable Long id) {
         eventService.deleteEvent(id);
     }
 
 }
+
 
 

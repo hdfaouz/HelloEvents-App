@@ -13,7 +13,6 @@ import java.util.List;
 
 
 @Service
-
 public class ClientService {
 
 
@@ -41,19 +40,17 @@ public class ClientService {
                 .orElseThrow(()-> new RuntimeException("Client not found"));
     }
 
-    /*public ClientDto modifierClient(Long id ,ClientDto clientDto){
+   public ClientDto modifierClient(Long id ,ClientDto clientDto){
         Client client = clientRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Client not found with id: " + id));
-        client.setUsername(clientDto);
-        client.setLastName(clientDto.getLastName());
-        client.setEmail(clientDto.getEmail());
+        client.setUsername(clientDto.getUsername());
         client.setPassword(clientDto.getPassword());
 
         return clientMap.toClientDto(clientRepository.save(client));
 
 
 
-    }*/
+    }
 
     public void deleteClient(Long id){
         clientRepository.deleteById(id);

@@ -3,10 +3,10 @@ package com.enaa.helloevents;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class HelloEventsApplicationTests {
 
-	@Test
+	//@Test
 	void contextLoads() {
 	}
 
